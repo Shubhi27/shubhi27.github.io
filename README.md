@@ -1,0 +1,4 @@
+RGB color game
+here you can select the right option and win the game...
+You can change the colors if you don't know that answer
+two level...EASY and HARD are there
