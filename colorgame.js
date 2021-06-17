@@ -5,6 +5,7 @@ var squares=document.querySelectorAll(".square");
 var colorsdisplay=document.querySelector("#colordisplay");
 var messagedisplay=document.querySelector("#message");
 var h1=document.querySelector("h1");
+var p=document.querySelector("p");
 var resetbutton=document.querySelector("#reset");
 var modebuttons=document.querySelectorAll(".mode");
 init();
@@ -20,7 +21,6 @@ function setupmodebuttons(){
 		modebuttons[0].classList.remove("selected");
 		modebuttons[1].classList.remove("selected");
         this.classList.add("selected");
-        //this.textContent==="easy" ? numofsquares=3:numofsquares=6;
         if(this.textContent==="Easy"){
         	numofsquares=3
         }
@@ -41,9 +41,13 @@ function setupsquare(){
 			resetbutton.textContent="Play again?";
 			changeColor(clickedcolor);
 			h1.style.backgroundColor= clickedcolor;
+			p.style.backgroundColor= clickedcolor;
+			p.textContent= "";
 		}else{
 			this.style.backgroundColor="#232323";
 			messagedisplay.textContent="Try Again";
+			p.textContent= "";
+			p.style.backgroundColor="steelblue";
 		}
 	})
 }
@@ -68,38 +72,9 @@ colors = generateRandomColors(numofsquares);
 
 }
       h1.style.backgroundColor="steelblue";	
-
+      p.style.backgroundColor="rgb(3, 75, 134)";
+	  p.textContent="First select your level(EASY/HARD) and then select the matching color of the given code";
 }
- /*easybtn.addEventListener("click",function(){
- 	hardbtn.classList.remove("selected");
-    easybtn.classList.add("selected");
-    numofsquares=3;
-    colors=generateRandomColors(numofsquares);
-    pickedcolor=pickColor();
-    colorsdisplay.textContent=pickedcolor;
-    for (var i=0;i<squares.length;i++){
-    	if(colors[i]){
-    		squares[i].style.backgroundColor=colors[i];
-    	}
-    	else{
-    		squares[i].style.display="none";
-    	}
-    }
- });
- hardbtn.addEventListener("click",function(){
-hardbtn.classList.add("selected");
-easybtn.classList.remove("selected");
-  numofsquares=6
-colors=generateRandomColors(numofsquares);
-    pickedcolor=pickColor();
-    colorsdisplay.textContent=pickedcolor;
-    for (var i=0;i<squares.length;i++){
-    	
-    		squares[i].style.backgroundColor=colors[i];
-    	squares[i].style.display="block";
-    	}
-    
-});*/
 
 resetbutton.addEventListener("click",function(){
 	reset();
